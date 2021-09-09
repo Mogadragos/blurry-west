@@ -2,16 +2,28 @@ using UnityEngine;
 
 public class AudioTrigger : MonoBehaviour
 {
-    public string nameEnter;
-    public string nameLeave;
+    public string audioNameEnter;
+    public string audioNameLeave;
+
+    public AudioManager manager;
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
+        if (other.tag != "Player")
+            return;
+        if(audioNameLeave != "")
+            manager.Stop(audioNameLeave);
+        if (audioNameEnter != "")
+            manager.Play(audioNameEnter);
     }
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log(other.tag);
+        if (other.tag != "Player")
+            return;
+        if (audioNameEnter != "")
+            manager.Stop(audioNameEnter);
+        if (audioNameLeave != "")
+            manager.Play(audioNameLeave);
     }
 }
