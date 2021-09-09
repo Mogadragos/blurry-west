@@ -5,13 +5,13 @@ public class AudioTrigger : MonoBehaviour
     public string nameEnter;
     public string nameLeave;
 
-    void OnTriggerEnter(collider other)
+    void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag)
+        Debug.Log(other.tag);
     }
 
-    void OnTriggerExit(collider other)
+    void OnTriggerExit(Collider other)
     {
-        Debug.Log(other.tag)
+        Debug.Log(other.tag);
     }
 }
